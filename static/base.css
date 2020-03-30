@@ -1,0 +1,38 @@
+.group-forms {
+    text-align: center;
+}
+
+/* .frame-size {
+    width: fit-content;
+    height: 200px;
+} */
+
+@font-face {
+    font-family: 'AdobeArabic';
+    src: url('/static/AdobeArabic-Regular.eot'),
+        url('/static/AdobeArabic-Regular.ttf'),
+        url('/static/AdobeArabic-Regular.woff')
+}
+
+
+.frame-size {
+    width: 842px;
+    height: 595px;
+}
+
+.container {
+    position: relative;
+    text-align: center;
+}
+
+.centered {
+    white-space: nowrap;
+    position: absolute;
+    transform-origin: center center;
+    top: 540px;
+    left: 550px;
+    font-family: 'AdobeArabic', sans-serif;
+    /* transform: translate(-50%, -50%); */
+    font-size: 60pt;
+    color: black;
+}
