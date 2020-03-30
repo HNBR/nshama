@@ -18,7 +18,7 @@ class CreateNewCertification(CreateView):
         form = self.form_class(request.POST)
         if form.is_valid():
             person = Person.objects.create(w_name=request.POST["w_name"])
-            person.save()
+            # person.save()
             return HttpResponseRedirect(person.certificate.image.url)
 
     def get_success_url(self):
