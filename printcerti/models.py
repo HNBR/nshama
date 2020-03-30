@@ -48,7 +48,7 @@ class Person(models.Model):
 
 class Certificate(models.Model):
     person = models.OneToOneField(Person, on_delete=models.CASCADE)
-    image = models.ImageField(upload_to="images", blank=True, default=settings.MEDIA_ROOT + r"\test.jpeg")
+    image = models.ImageField(upload_to="images", blank=True, default=settings.MEDIA_ROOT + "/test.jpeg")
 
     def __str__(self):
         return f"{self.person.w_name}"
