@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -26,7 +27,7 @@ SECRET_KEY = "r$rkxnyg(jmz5+q9z8jh!pu%h4f0mnzu&i-)#gxnlikb2r+_(3"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["nshama.herokuapp.com",]
+ALLOWED_HOSTS = ["nshama.herokuapp.com", "127.0.0.1"]
 
 
 # Application definition
@@ -132,3 +133,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "images")
 MEDIA_URL = "/certification/"
 
 CRISPY_TEMPLATE_PACK = "bootstrap4"
+
+django_heroku.settings(locals())
