@@ -39,7 +39,7 @@ class Person(models.Model):
 
     def save(self, *args, **kwargs):
         super(Person, self).save(*args, **kwargs)
-        arabic_certi(f"{self.w_name}", settings.MEDIA_ROOT + f"/certification/{self.w_name}.jpeg", img_dir=settings.MEDIA_ROOT + r"\test.jpeg")
+        arabic_certi(f"{self.w_name}", settings.MEDIA_ROOT + f"/certification/{self.w_name}.jpeg", img_dir=settings.MEDIA_ROOT + "/test.jpeg")
         certificate = Certificate(person=self, image=settings.MEDIA_ROOT + f"/certification/{self.w_name}.jpeg")
         certificate.image.name = f"/certification/{self.w_name}.jpeg"
         certificate.save()
