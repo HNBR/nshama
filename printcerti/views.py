@@ -19,12 +19,12 @@ class CreateNewCertification(CreateView):
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST)
         if form.is_valid():
-            person = Person.objects.create(w_name=request.POST["w_name"])
-            with open(f"{settings.MEDIA_ROOT}/{request.POST['w_name']}.jpeg", "rb") as image:
+            name = request.POST["w_name"].strip()
+            person = Person.objects.create(w_name=name)
+            with open(f"{settings.MEDIA_ROOT}/{name}.jpeg", "rb") as image:
                 response = HttpResponse(image.read(),content_type="image/jpeg")
                 response['Content-Disposition'] = f'attachment; filename={person.certificate.image.url}'
-            
-            return response
+                return response
 
     def get_success_url(self):
         return reverse("create")

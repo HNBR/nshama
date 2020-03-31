@@ -20,14 +20,14 @@ from arabic_reshaper import reshape
 from bidi.algorithm import get_display
 
 
-def arabic_certi(name, save, xline=559, yline=378, img_dir="test.png"):
+def arabic_certi(name, save, xline=94, yline=548, img_dir="test.jpeg"):
     img = Image.open(img_dir)
     W, H = (img.width, img.height)
     draw = ImageDraw.Draw(img)
     msg = get_display(reshape(name))
-    font = ImageFont.truetype(os.path.join(settings.BASE_DIR, "static/AdobeArabic-Regular.ttf"), 50)
+    font = ImageFont.truetype(os.path.join(settings.BASE_DIR, "static/bein-black.ttf"), 65)
     w, h = draw.textsize(msg, font=font)
-    draw.multiline_text((W-xline-w, yline), msg, (0, 0, 0), font=font, align="left")
+    draw.multiline_text((W-xline-615+((615-w)/2), yline), msg, (255, 255, 255), font=font, align="left")
     img.save(save)
 
 class Person(models.Model):

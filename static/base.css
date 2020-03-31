@@ -8,12 +8,22 @@
 } */
 
 @font-face {
-    font-family: 'AdobeArabic';
-    src: url('/static/AdobeArabic-Regular.eot'),
-        url('/static/AdobeArabic-Regular.ttf'),
-        url('/static/AdobeArabic-Regular.woff')
+    font-family: 'bein';
+    src: url('/static/bein-black.ttf');
 }
 
+
+h2 {
+    font-family: 'bein';
+    color: rgb(223, 146, 39);
+    font-size: 3.59vw;
+}
+
+
+.banner {
+    width: 70%;
+    height: auto;
+}
 
 .frame-size {
     width: 842px;
