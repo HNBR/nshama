@@ -32,7 +32,7 @@ def arabic_certi(name, save, xline=94, yline=548, img_dir="test.jpeg"):
 
 class Person(models.Model):
 
-    w_name = models.CharField(max_length=60, verbose_name=_("Full name"), default="")
+    w_name = models.CharField(max_length=18, verbose_name=_("Full name"), default="")
 
     def __str__(self):
         return f"{self.w_name}"
