@@ -20,19 +20,34 @@ from arabic_reshaper import reshape
 from bidi.algorithm import get_display
 
 
-def arabic_certi(name, save, xline=94, yline=548, img_dir="test.jpeg"):
+
+
+
+
+
+def arabic_certi(name, save, xline=798.503, yline=624.414, img_dir="test.jpeg"):
     img = Image.open(img_dir)
     W, H = (img.width, img.height)
     draw = ImageDraw.Draw(img)
     msg = get_display(reshape(name))
-    font = ImageFont.truetype(os.path.join(settings.BASE_DIR, "static/bein-black.ttf"), 65)
+
+    for i in range(1, 100)[::-1]:
+        font = ImageFont.truetype("bein-black.ttf", i)
+        w, h = draw.textsize(msg, font=font)
+
+        if w < 614.943 and h < 97.07:
+            correct_font_size = i
+            print(correct_font_size)
+            break
+
+    font = ImageFont.truetype(os.path.join(settings.BASE_DIR, "static/bein-black.ttf"), correct_font_size)
     w, h = draw.textsize(msg, font=font)
-    draw.multiline_text((W-xline-615+((615-w)/2), yline), msg, (255, 255, 255), font=font, align="left")
+    draw.multiline_text((xline-w/2, yline-h/1.5), msg, (255, 255, 255), font=font, align="left")
     img.save(save)
 
 class Person(models.Model):
 
-    w_name = models.CharField(max_length=18, verbose_name=_("Full name"), default="")
+    w_name = models.CharField(max_length=60, verbose_name=_("Full name"), default="")
 
     def __str__(self):
         return f"{self.w_name}"
