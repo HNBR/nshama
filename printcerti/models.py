@@ -32,7 +32,7 @@ def arabic_certi(name, save, xline=798.503, yline=624.414, img_dir="test.jpeg"):
     msg = get_display(reshape(name))
 
     for i in range(1, 100)[::-1]:
-        font = ImageFont.truetype("bein-black.ttf", i)
+        font = ImageFont.truetype(os.path.join(settings.BASE_DIR, "static/bein-black.ttf"), i)
         w, h = draw.textsize(msg, font=font)
 
         if w < 614.943 and h < 97.07:
