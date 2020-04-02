@@ -69,15 +69,15 @@ class CreateNewCertification(CreateView):
 
             qr.make(fit=True)
             img = qr.make_image()
-            img.save(os.path.join(settings.MEDIA_ROOT, f"{name}qr.jpeg"))
+            img.save(f"images/{name}qr.jpeg")
 
-            arabic_certi(name, os.path.join(settings.MEDIA_ROOT, f"{name}.jpeg"),
-                         os.path.join(settings.MEDIA_ROOT, f"{name}qr.jpeg"),
-                         img_dir=os.path.join(settings.MEDIA_ROOT, "test.jpeg"))
+            arabic_certi(name, f"images/{name}.jpeg",
+                f"images/{name}qr.jpeg",
+                         img_dir=f"images/test.jpeg")
 
             person.image = f"{name}.jpeg"
-            os.remove(os.path.join(settings.MEDIA_ROOT, f"{name}qr.jpeg"))
-            with open(os.path.join(settings.MEDIA_ROOT, f"{name}.jpeg"), "rb") as image:
+            os.remove(f"images/{name}qr.jpeg")
+            with open(f"images/{name}.jpeg", "rb") as image:
                 response = HttpResponse(image.read(), content_type="image/jpeg")
                 response['Content-Disposition'] = f'attachment; filename={person.image.url}'
                 return response
