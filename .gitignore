@@ -1,5 +1,8 @@
-*.log
-local_settings.py
+*.pyc
+*~
+/.vscode
+__pycache__
+myvenv
 db.sqlite3
-db.sqlite3-journal
-.vscode
+/static
+.DS_Store
